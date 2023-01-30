@@ -19,8 +19,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class UserController {
     private final UserService userService;
 
-    @Value("${server.port}")
-    private int randomServerPort;
+//    @Value("${server.port}")
+//    private int randomServerPort;
 
     @Autowired
     public UserController(UserService userService){
@@ -46,9 +46,9 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
     }
 
-    @GetMapping("/port")
-    public ResponseEntity<?> queryWeatherByCity() {
-        return new ResponseEntity<>("weather service + " + randomServerPort, HttpStatus.OK);
-    }
+//    @GetMapping("/port")
+//    public ResponseEntity<?> queryWeatherByCity() {
+//        return new ResponseEntity<>("weather service + " + randomServerPort, HttpStatus.OK);
+//    }
 
 }

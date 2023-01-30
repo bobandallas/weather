@@ -10,7 +10,9 @@
     <groupId>com.example</groupId>
     <artifactId>provider</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+
     <name>provider</name>
+
     <description>Demo project for Spring Boot Provider</description>
     <packaging>jar</packaging>
 
@@ -19,6 +21,11 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-config-client</artifactId>
         </dependency>
 
         <dependency>
