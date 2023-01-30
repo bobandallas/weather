@@ -10,6 +10,7 @@
         <module name="details" />
         <module name="search" />
         <module name="config" />
+        <module name="provider" />
         <module name="discovery" />
         <module name="gateway" />
       </profile>
@@ -21,6 +22,7 @@
       <module name="details" options="-parameters" />
       <module name="discovery" options="-parameters" />
       <module name="gateway" options="-parameters" />
+      <module name="provider" options="-parameters" />
       <module name="search" options="-parameters" />
     </option>
   </component>
