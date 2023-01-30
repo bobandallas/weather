@@ -32,19 +32,46 @@ public class TeacherController {
 
 
     @PostMapping
-    public ResponseEntity<String> addOne(@RequestBody Teacher teacher){
+    public ResponseEntity addOne(@RequestBody Teacher teacher){
+
+        try {
+            Boolean result = teacherService.addOne(teacher);
+            if(result){
+                return ResponseEntity.status(HttpStatus.CREATED).build();
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
 
 
-        return new ResponseEntity<>(teacherService.addOne(teacher), HttpStatus.CREATED);
+
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteOne(@PathVariable int id){
-        return new ResponseEntity<>(teacherService.deleteOne(id), HttpStatus.ACCEPTED);
+    public ResponseEntity deleteOne(@PathVariable int id){
+
+        try {
+            Boolean result = teacherService.deleteOne(id);
+            if(result){
+                return ResponseEntity.status(HttpStatus.ACCEPTED).build();
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<String> updateOne(@PathVariable int id,@RequestBody Teacher teacher){
-        return new ResponseEntity<>(teacherService.updateOne(id, teacher), HttpStatus.OK);
+    public ResponseEntity updateOne(@PathVariable int id,@RequestBody Teacher teacher){
+        try {
+            Boolean result = teacherService.updateOne(id, teacher);
+            if(result){
+                return ResponseEntity.status(HttpStatus.OK).build();
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
     }
 }

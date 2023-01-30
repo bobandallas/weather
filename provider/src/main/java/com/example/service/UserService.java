@@ -6,6 +6,6 @@ import org.springframework.stereotype.Service;
 @Service
 public interface UserService {
     UserResponseDTO getAll();
-    String insertOne(UserResponseDTO.UserDTO user);
+    Boolean insertOne(UserResponseDTO.UserDTO user);
 
 }

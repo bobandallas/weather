@@ -6,6 +6,7 @@ import com.example.repository.TeacherRepository;
 import com.example.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -37,21 +38,24 @@ public class TeacherServiceImpl implements TeacherService {
         return new TeacherResponseDTO(res);
     }
     @Override
-    public String addOne( Teacher teacher){
+    @Transactional
+    public Boolean addOne( Teacher teacher){
         teacherRepository.addOne(teacher);
-        return "success";
+        return true;
     }
 
     @Override
-    public String deleteOne(int id){
+    @Transactional
+    public Boolean deleteOne(int id){
         teacherRepository.deleteOne(id);
-        return "success";
+        return true;
     }
 
     @Override
-    public String updateOne(int id,  Teacher teacher){
+    @Transactional
+    public Boolean updateOne(int id,  Teacher teacher){
         teacherRepository.updateOne(id, teacher);
-        return "success";
+        return true;
     }
 
 }

@@ -30,19 +30,43 @@ public class StudentController {
         return new ResponseEntity<>(studentService.findAll(), HttpStatus.OK);
     }
 
-    @PutMapping
-    public ResponseEntity<String> addOne(@RequestBody Student student){
-        return new ResponseEntity<>(studentService.addOne(student), HttpStatus.OK);
+    @PostMapping
+    public ResponseEntity addOne(@RequestBody Student student){
+        try {
+            Boolean result = studentService.addOne(student);
+            if(result){
+                return ResponseEntity.status(HttpStatus.CREATED).build();
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteOne(@PathVariable int id){
-        return new ResponseEntity<>(studentService.deleteOne(id), HttpStatus.OK);
+        try {
+            Boolean result = studentService.deleteOne(id);
+            if(result){
+                return ResponseEntity.status(HttpStatus.ACCEPTED).build();
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
     }
 
-    @PostMapping("/{id}")
-    public ResponseEntity<String> updateOne(@PathVariable int id,@RequestBody Student student){
-        return new ResponseEntity<>(studentService.updateOne(id, student), HttpStatus.OK);
+    @PutMapping("/{id}")
+    public ResponseEntity updateOne(@PathVariable int id,@RequestBody Student student){
+        try {
+            Boolean result = studentService.updateOne(id, student);
+            if(result){
+                return ResponseEntity.status(HttpStatus.OK).build();
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
     }
 
 //    CustomGlobalExceptionHandler

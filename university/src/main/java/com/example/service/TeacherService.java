@@ -12,9 +12,9 @@ public interface TeacherService {
 
     TeacherResponseDTO getAll();
 
-    String addOne(Teacher teacher);
+    Boolean addOne(Teacher teacher);
 
-    String deleteOne(int id);
+    Boolean deleteOne(int id);
 
-    String updateOne(int id, Teacher teacher);
+    Boolean updateOne(int id, Teacher teacher);
 }

@@ -7,6 +7,7 @@ import com.example.repository.UserRepository;
 import com.example.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -30,7 +31,8 @@ public class UserServiceImpl implements UserService {
         return res;
     }
     @Override
-    public String insertOne(UserResponseDTO.UserDTO user){
+    @Transactional
+    public Boolean insertOne(UserResponseDTO.UserDTO user){
         User temp = new User();
         temp.setDob(user.getDob());
         temp.setFirstName(user.getFirstName());
@@ -38,6 +40,6 @@ public class UserServiceImpl implements UserService {
         temp.setMiddleName(user.getMiddleName());
         System.out.println(temp);
         userRepository.saveAndFlush(temp);
-        return "success";
+        return true;
     };
 }

@@ -36,8 +36,8 @@ public class UserController {
     @PostMapping
     public ResponseEntity addOne(@RequestBody UserRequestDTO userRequestDTO){
         try {
-            String result = userService.insertOne(userRequestDTO.getProvider());
-            if(result == "success"){
+            Boolean result = userService.insertOne(userRequestDTO.getProvider());
+            if(result){
                 return ResponseEntity.status(HttpStatus.CREATED).build();
             }
         }catch (Exception e){
@@ -46,9 +46,5 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
     }
 
-//    @GetMapping("/port")
-//    public ResponseEntity<?> queryWeatherByCity() {
-//        return new ResponseEntity<>("weather service + " + randomServerPort, HttpStatus.OK);
-//    }
 
 }

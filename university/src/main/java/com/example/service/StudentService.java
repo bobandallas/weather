@@ -15,10 +15,10 @@ public interface StudentService {
 
     StudentResponseDTO findAll();
 
-    String addOne(Student student);
+    Boolean addOne(Student student);
 
-    String deleteOne(int id);
+    Boolean deleteOne(int id);
 
-    String updateOne(int id, Student student);
+    Boolean updateOne(int id, Student student);
 
 }
