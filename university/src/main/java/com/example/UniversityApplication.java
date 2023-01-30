@@ -11,6 +11,3 @@ public class UniversityApplication {
         SpringApplication.run(UniversityApplication.class, args);
     }
 }
-
-
-//    INSERT INTO STUDENT (ID,NAME,AGE,ISEXIST) VALUES (1, 'Paul', 32, TRUE);
